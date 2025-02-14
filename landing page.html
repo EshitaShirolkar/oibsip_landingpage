@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Shelter - Adopt a Friend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Baloo+2&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(to right, #ffb6b9, #fae3d9);
+            color: #2a2a2a;
+            text-align: center;
+            padding: 50px 20px;
+            font-family: 'Baloo 2', cursive;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ff6347;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #ff6666;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://www.shutterstock.com/image-photo/stray-dog-animal-shelter-waiting-600nw-2472669449.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ff6347;
+            font-family: 'Baloo 2', cursive;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close-modal {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ff6347;
+            border: none;
+            background: transparent;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #ff6347;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #ffd166;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Pet Shelter</h1>
+        <p>Give a pet a second chance at life. Adopt, Don't Shop!</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Adopt a Pet, Change a Life</h2>
+        <p>Find your new best friend today. Every pet deserves a loving home.</p>
+        <button class="cta-button">Adopt Now</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card" onclick="openModal('dog')">
+            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202209/pexels-blue-bird-7210625__1__1200x768.jpeg?VersionId=jw3U5drzk3uSOQs8qJNquLZk3hjvE9wZ" alt="Cute Dog">
+            <h3>Friendly Dogs</h3>
+            <p>Our dogs are loving, loyal, and ready for their forever home.</p>
+        </div>
+        <div class="feature-card" onclick="openModal('cat')">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/049/072/313/small/close-up-of-a-whimsical-contented-smiling-cat-with-eyes-closed-in-sunlight-concept-of-happy-pet-cat-relaxation-feline-joy-serene-companion-funny-kitten-photo.jpeg" alt="Adorable Cat">
+            <h3>Playful Cats</h3>
+            <p>Our cats are curious and playful, looking for someone to care for them.</p>
+        </div>
+        <div class="feature-card" onclick="openModal('small-pet')">
+            <img src="https://pangovet.com/wp-content/uploads/2024/06/Group-of-pets-posing-around-a-border-collie-dog-cat-ferret-rabbit-bird-fish-rodent_Eric-Isselee_Shutterstock-e1663149511370.webp" alt="Happy Pets">
+            <h3>Small Pets</h3>
+            <p>From rabbits to guinea pigs, our small pets are ready to bring joy into your life.</p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="petModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2 id="petTitle">Pet Details</h2>
+            <p id="petDescription">Here you can find more information about our pets.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pet Shelter. All Rights Reserved.</p>
+        <p>Want to help? Learn more about our shelter <a href="#">here</a>.</p>
+    </footer>
+
+    <script>
+        // Modal functionality
+        function openModal(petType) {
+            let petTitle = document.getElementById('petTitle');
+            let petDescription = document.getElementById('petDescription');
+            if (petType === 'dog') {
+                petTitle.innerText = "Friendly Dogs";
+                petDescription.innerText = "Our
+
+
